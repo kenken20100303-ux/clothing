@@ -3,6 +3,7 @@ import {createRoot} from 'react-dom/client';
 import App from './App.tsx';
 import './index.css';
 
+// Forced refresh for Vite dev server
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <App />
