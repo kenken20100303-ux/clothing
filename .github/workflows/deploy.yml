@@ -25,6 +25,8 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          GEMINI_API_KEY: ${{ secrets.api_key }} # 對應到你設定的 api_key
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
