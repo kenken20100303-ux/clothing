@@ -21,12 +21,14 @@ jobs:
           # Removed cache: 'npm' to avoid errors if package-lock.json is missing
 
       - name: Install Dependencies
-        run: npm install
+        run: npm install --legacy-peer-deps
 
       - name: Build
-        run: npm run build
+        run: |
+          NODE_OPTIONS="--max-old-space-size=4096" npm run build
         env:
-          GEMINI_API_KEY: ${{ secrets.api_key }} # 對應到你設定的 api_key
+          GEMINI_API_KEY: ${{ secrets.api_key }}
+          VITE_BASE_URL: './'
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
