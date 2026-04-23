@@ -5,8 +5,11 @@ import {defineConfig, loadEnv} from 'vite';
 
 export default defineConfig(({mode}) => {
   const env = loadEnv(mode, '.', '');
+  // 優先順序：自定義環境變數 > './' (適合大多數靜態部署)
+  const base = process.env.VITE_BASE || './';
+  
   return {
-    base: './', // 統一使用相對路徑，確保 GitHub Pages 子目錄或根目錄都能載入
+    base: base,
     plugins: [react(), tailwindcss()],
     define: {
       'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY),

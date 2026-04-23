@@ -26,12 +26,13 @@ jobs:
       - name: Build
         run: |
           NODE_OPTIONS="--max-old-space-size=4096" npm run build
+          ls -R dist
         env:
           GEMINI_API_KEY: ${{ secrets.api_key }}
-          VITE_BASE_URL: './'
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: dist # 告訴 GitHub 只要部署打包後的 dist 資料夾
-          branch: gh-pages # 部署到 gh-pages 分支
+          folder: dist # 部署這個資料夾
+          branch: gh-pages # 到這個分支
+          clean: true # 每次部署都清理舊檔案
