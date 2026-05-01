@@ -1,6 +1,5 @@
 {
-  "name": "GAS E-commerce System Architect",
-  "description": "A lightweight e-commerce system architecture using Google Apps Script and Google Sheets as a database.",
-  "requestFramePermissions": [],
-  "majorCapabilities": []
+  "name": "Modern Fashion E-commerce",
+  "description": "A sophisticated online clothing store with AI-powered search, filtering, and a seamless shopping experience.",
+  "requestFramePermissions": []
 }
